@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Exoplanets Experience</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/AR-js-org/AR.js/3.3.2/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            font-family: 'Arial', sans-serif;
+        }
+        a-scene {
+            width: 100%;
+            height: 100%;
+        }
+        a-text {
+            font: 'https://aframe.io/fonts/helvetiker_regular.typeface.json';
+            stroke: #000; /* Adds a stroke for better visibility */
+            strokeWidth: 0.1; /* Width of the stroke */
+        }
+        .planet-label {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+            padding: 3px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            a-text {
+                scale: 0.3 0.3 0.3; /* Smaller text for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            a-text {
+                scale: 0.25 0.25 0.25; /* Smaller text for smartphones */
+            }
+        }
+    </style>
+</head>
+<body>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        <!-- TRAPPIST-1e -->
+        <a-entity position="0 0 -5">
+            <a-image src="https://arabiannft.io/wp-content/uploads/2024/10/traooist-1e.png" 
+                      width="1" height="1" position="0 0 0"></a-image>
+            <a-text class="planet-label" value="TRAPPIST-1e\nDistance: ~39.5 light-years\nHost Star: TRAPPIST-1\nAtmosphere: Similar to Earth\nTemperature: -20 to 60°C\nNo evidence of water." 
+                     position="0 -1 0" color="#FFFFFF" scale="0.4 0.4 0.4" align="center"></a-text>
+        </a-entity>
+
+        <!-- Proxima Centauri b -->
+        <a-entity position="2 0 -5">
+            <a-image src="https://arabiannft.io/wp-content/uploads/2024/10/proxmima-1-2-1.png" 
+                      width="1" height="1" position="0 0 0"></a-image>
+            <a-text class="planet-label" value="Proxima Centauri b\nDistance: ~4.2 light-years\nHost Star: Proxima Centauri\nAtmosphere: Uncertain\nTemperature: Varies greatly\nPotential for Water: Yes." 
+                     position="0 -1 0" color="#FFFFFF" scale="0.4 0.4 0.4" align="center"></a-text>
+        </a-entity>
+
+        <!-- Kepler-442b -->
+        <a-entity position="-2 0 -5">
+            <a-image src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Kepler-442b_%28nB%29.png" 
+                      width="1" height="1" position="0 0 0"></a-image>
+            <a-text class="planet-label" value="Kepler-442b\nDistance: ~1,200 light-years\nHost Star: Kepler-442\nAtmosphere: Unknown\nTemperature: Estimated to support life\nPotential for Water: Yes." 
+                     position="0 -1 0" color="#FFFFFF" scale="0.4 0.4 0.4" align="center"></a-text>
+        </a-entity>
+
+        <a-entity camera></a-entity>
+    </a-scene>
+</body>
+</html>
